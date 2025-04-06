@@ -1,0 +1,11 @@
+groups:
+  - name: node_disk_write_latency
+    rules:
+      - alert: node_disk_write_latency_alert
+        expr: node_disk_write_latency_rule > 0.1
+        for: 1m
+        annotations:
+          summary: "disk write latency in {{ $labels.instance }}"
+          description: "disk write latency is {{ $value }}"
+
+
